@@ -1,5 +1,5 @@
-import 'package:callback_functions/counter_box.dart';
 import 'package:flutter/material.dart';
+import 'counter_box.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -9,42 +9,27 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
-  // State
-  int _totalCount = 0;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
-          spacing: 16,
+          spacing: 24,
           children: [
+            const SizedBox(height: 32),
             CounterBox(
-              color: Colors.blue,
-              onChanged: (c) {
-                setState(() {
-                  _totalCount++;
-                });
-              },
+              color: Colors.lime,
+              onChanged: (text) => debugPrint("Box 1 Text: $text"),
             ),
             CounterBox(
-              color: Colors.indigo,
-              onChanged: (c) {
-                setState(() {
-                  _totalCount++;
-                });
-              },
+              color: Colors.lightBlueAccent,
+              onChanged: (text) => debugPrint("Box 2 Text: $text"),
             ),
             CounterBox(
               color: Colors.purpleAccent,
-              onChanged: (c) {
-                setState(() {
-                  _totalCount++;
-                });
-              },
+              onChanged: (text) => debugPrint("Box 3 Text: $text"),
             ),
-            Text("Zählerstand Gesamt: $_totalCount"),
           ],
         ),
       ),
