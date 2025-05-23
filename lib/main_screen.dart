@@ -9,6 +9,9 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
+  int _lengthGreen = 0;
+  int _lengthBlue = 0;
+  int _lengthPink = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,15 +23,33 @@ class _MainScreenState extends State<MainScreen> {
             const SizedBox(height: 32),
             CounterBox(
               color: Colors.lime,
-              onChanged: (text) => debugPrint("Box 1 Text: $text"),
+              onChanged: (length) {
+                setState(() {
+                  _lengthGreen = length;
+                });
+              },
             ),
             CounterBox(
               color: Colors.cyan,
-              onChanged: (text) => debugPrint("Box 2 Text: $text"),
+              onChanged: (length) {
+                setState(() {
+                  _lengthBlue = length;
+                });
+              },
             ),
             CounterBox(
               color: Colors.purpleAccent,
-              onChanged: (text) => debugPrint("Box 3 Text: $text"),
+              onChanged: (length) {
+                setState(() {
+                  _lengthPink = length;
+                });
+              },
+            ),
+            SizedBox(
+              height: 24,
+            ),
+            Text(
+              "Gesamte Länge: ${_lengthGreen + _lengthBlue + _lengthPink}",
             ),
           ],
         ),

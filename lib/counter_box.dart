@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class CounterBox extends StatefulWidget {
   final Color color;
-  final void Function(String text) onChanged;
+  final void Function(int stringLength) onChanged;
 
   const CounterBox({
     super.key,
@@ -16,7 +16,6 @@ class CounterBox extends StatefulWidget {
 
 class _CounterBoxState extends State<CounterBox> {
   int _count = 0;
-  final TextEditingController _inputController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -35,12 +34,11 @@ class _CounterBoxState extends State<CounterBox> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               TextFormField(
-                controller: _inputController,
                 onChanged: (value) {
                   setState(() {
                     _count = value.length;
                   });
-                  widget.onChanged(value);
+                  widget.onChanged(_count);
                 },
                 decoration: const InputDecoration(border: OutlineInputBorder()),
               ),
