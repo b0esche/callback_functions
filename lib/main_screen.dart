@@ -23,7 +23,7 @@ class _MainScreenState extends State<MainScreen> {
               onChanged: (text) => debugPrint("Box 1 Text: $text"),
             ),
             CounterBox(
-              color: Colors.lightBlueAccent,
+              color: Colors.cyan,
               onChanged: (text) => debugPrint("Box 2 Text: $text"),
             ),
             CounterBox(
